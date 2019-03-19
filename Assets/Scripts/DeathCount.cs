@@ -101,4 +101,9 @@ public class DeathCount : MonoBehaviour
     {
 
     }
+
+    public void TakeDeathCount(int newCount)
+    {
+        deathCount = newCount;
+    }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HunterCell : MonoBehaviour
 {
@@ -11,13 +12,27 @@ public class HunterCell : MonoBehaviour
     private Rigidbody2D rb2d;
     [SerializeField]
     private float slowCoefficient = 2;
+    [SerializeField]
+    private SpriteRenderer spriteRenderer;
+    [SerializeField]
+    private Sprite oneProtein;
+    [SerializeField]
+    private Sprite twoProtein;
+    [SerializeField]
+    private int nextScene;
 
+    private int obtainedProtein = 0;
     private float directionX;
     private float directionY;
 
     void FixedUpdate()
     {
         Move(); 
+
+        if(obtainedProtein == 5)
+        {
+            SceneManager.LoadScene(nextScene);
+        }
     }
 
     private void Move()
@@ -38,5 +53,22 @@ public class HunterCell : MonoBehaviour
             vector.y = vector.y * directionY;
         }
         rb2d.velocity = (vector);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("food"))
+        {
+            if(obtainedProtein == 0)
+            {
+                spriteRenderer.sprite = oneProtein;
+            }
+            else if (obtainedProtein == 1)
+            {
+                spriteRenderer.sprite = twoProtein;
+            }
+            obtainedProtein++;
+            collision.gameObject.SetActive(false);
+        }
     }
 }
