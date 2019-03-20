@@ -15,21 +15,29 @@ public class HunterCell : MonoBehaviour
     [SerializeField]
     private SpriteRenderer spriteRenderer;
     [SerializeField]
-    private Sprite oneProtein;
+    private Sprite oneConsumed;
     [SerializeField]
-    private Sprite twoProtein;
+    private Sprite twoConsumed;
     [SerializeField]
     private int nextScene;
+    [SerializeField]
+    private AudioSource audioSource;
 
-    private int obtainedProtein = 0;
+    private int obtainedFood = 0;
     private float directionX;
     private float directionY;
+    private DeathCount deathCount;
+
+    void Awake()
+    {
+        deathCount = (DeathCount)FindObjectOfType(typeof(DeathCount));
+    }
 
     void FixedUpdate()
     {
         Move(); 
 
-        if(obtainedProtein == 5)
+        if(obtainedFood == 5)
         {
             SceneManager.LoadScene(nextScene);
         }
@@ -59,16 +67,23 @@ public class HunterCell : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("food"))
         {
-            if(obtainedProtein == 0)
+            audioSource.Play();
+            if(obtainedFood == 1)
             {
-                spriteRenderer.sprite = oneProtein;
+                spriteRenderer.sprite = oneConsumed;
             }
-            else if (obtainedProtein == 1)
+            else if (obtainedFood == 3)
             {
-                spriteRenderer.sprite = twoProtein;
+                spriteRenderer.sprite = twoConsumed;
             }
-            obtainedProtein++;
+            obtainedFood++;
             collision.gameObject.SetActive(false);
+        }
+
+        if (collision.gameObject.CompareTag("hazard"))
+        {
+            deathCount.SetDeath();
+            this.gameObject.SetActive(false);
         }
     }
 }

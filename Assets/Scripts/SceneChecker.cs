@@ -67,4 +67,9 @@ public class SceneChecker : MonoBehaviour
             }
         }
     }
+
+    public void CallTakeDeathCount()
+    {
+        deathCount.TakeDeathCount(storedCount);
+    }
 }

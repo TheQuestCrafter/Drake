@@ -18,8 +18,6 @@ public class MainMenuFallingSpawner : MonoBehaviour
     private float xHolderFloat;
     private Vector3 spawnPoint;
     private float timeDelay;
-    private string EndGameState;
-    private bool EndGameStarted = false;
 
     void Awake()
     {
@@ -28,7 +26,7 @@ public class MainMenuFallingSpawner : MonoBehaviour
     }
     void Start()
     {
-        //Starts the Chili Spawning sequence
+        //Starts the ray Spawning sequence
         InvokeRepeating("SpawnCell", 0, inBetweenTime);
     }
     void FixedUpdate()
@@ -36,10 +34,9 @@ public class MainMenuFallingSpawner : MonoBehaviour
         ///<summary>
         /// If the timer has finished the desired time given in the serialized field then it will stop spawning cells
         /// </summary>
-        if (Time.time >= totalTime && !EndGameStarted)
+        if (Time.time >= totalTime)
         {
             CancelInvoke();
-            EndGameStarted = true;
         }
     }
     /// <summary>

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DeathCount : MonoBehaviour
@@ -32,16 +33,22 @@ public class DeathCount : MonoBehaviour
     [SerializeField]
     private int minNum5;
 
+    public bool endDeath = false;
     private int randomNumber;
     private System.Random random;
-    public int deathCount;
+    [SerializeField]
+    public int deathCount = 10000000;
     private string uiText;
     private bool alive = true;
+    private float storedTime;
+
+    [SerializeField]
+    private float timeAfterDeath = 3;
+    private SceneChecker sceneChecker;
 
     void Start()
     {
         random = new System.Random();
-        deathCount = 10000000;
     }
 
     void FixedUpdate()
@@ -66,6 +73,14 @@ public class DeathCount : MonoBehaviour
         if (deathCount <= 0)
         {
             uiText = "All life has ended.";
+            storedTime = Time.time;
+
+            /*if(Time.time >= storedTime + timeAfterDeath)
+            {
+                Application.Quit();
+                Debug.Log("Application Quit");
+            }*/
+
         }
 
         text.text = uiText;
@@ -75,6 +90,17 @@ public class DeathCount : MonoBehaviour
     {
         minNum = minNum1;
         maxNum = maxNum1;
+
+        if (deathCount >= 9925000)
+        {
+            minNum = minNum5;
+            maxNum = maxNum5;
+        }
+        if (endDeath)
+        {
+            minNum = minNum1;
+            maxNum = maxNum1;
+        }
         if (deathCount <= 100000)
         {
             minNum = minNum2;
@@ -90,16 +116,18 @@ public class DeathCount : MonoBehaviour
             minNum = minNum4;
             maxNum = maxNum4;
         }
-        if (deathCount >= 9925000)
-        {
-            minNum = minNum5;
-            maxNum = maxNum5;
-        }
     }
 
     public void SetDeath()
     {
-
+        if(deathCount<=1000 || endDeath)
+            alive = false;
+        else
+        {
+            sceneChecker = (SceneChecker)FindObjectOfType(typeof(SceneChecker));
+            sceneChecker.CallTakeDeathCount();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
     }
 
     public void TakeDeathCount(int newCount)
