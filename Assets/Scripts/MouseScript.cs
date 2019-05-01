@@ -16,10 +16,18 @@ public class MouseScript : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField]
     private Text text;
+    [SerializeField]
+    private Collider2D collider;
 
-    private int obtainedFood = 0;
+    public int obtainedFood { get; set; }
     private float directionX;
     private float directionY;
+
+    private void Awake()
+    {
+        obtainedFood = 0;
+        collider = GetComponent<Collider2D>();
+    }
 
     void FixedUpdate()
     {
@@ -42,17 +50,17 @@ public class MouseScript : MonoBehaviour
             /*vector.x = (vector.x / slowCoefficient);
             vector.x = vector.x * directionX;*/
 
-            if(directionX <= 0)
+            if(directionX <= -0.1)
             {
                 rb2d.rotation -= (directionX * moveSpeed);
             }
-            else if (directionX >= 0)
+            else if (directionX >= 0.1)
             {
                 rb2d.rotation -= (directionX * moveSpeed);
             }
-            else if (directionX == 0)
+            else if (directionX >= -0.1 || directionX <= 0.1)
             {
-                rb2d.rotation = 0;
+                rb2d.velocity = Vector3.zero;
             }
         }
 
@@ -69,12 +77,14 @@ public class MouseScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("food"))
         {
-            if (Input.GetKeyDown("Jump"))
-            {
                 audioSource.Play();
                 obtainedFood++;
                 collision.gameObject.SetActive(false);
-            }
         }
+    }
+
+    public void FreezePlayer()
+    {
+        moveSpeed = 0;
     }
 }

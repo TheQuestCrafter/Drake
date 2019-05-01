@@ -32,6 +32,8 @@ public class DeathCount : MonoBehaviour
     private int maxNum5;
     [SerializeField]
     private int minNum5;
+    [SerializeField]
+    private int finalSceneNum;
 
     public bool endDeath = false;
     private int randomNumber;
@@ -41,6 +43,7 @@ public class DeathCount : MonoBehaviour
     private string uiText;
     private bool alive = true;
     private float storedTime;
+    private bool endScene = false;
 
     [SerializeField]
     private float timeAfterDeath = 3;
@@ -55,6 +58,11 @@ public class DeathCount : MonoBehaviour
     {
         UpdateDeathCount();
         DisplayDeathCount();
+        if (Time.time >= storedTime && endScene)
+        {
+            Debug.Log("final scene called");
+            SceneManager.LoadScene(finalSceneNum);
+        }
     }
 
     private void DisplayDeathCount()
@@ -70,17 +78,12 @@ public class DeathCount : MonoBehaviour
         deathCount = Mathf.Clamp(deathCount, 0, 1000000000);
         uiText = "Species Left: " + deathCount;
 
-        if (deathCount <= 0)
+        if (deathCount <= 0 && !endScene)
         {
-            uiText = "All life has ended.";
-            storedTime = Time.time;
-
-            /*if(Time.time >= storedTime + timeAfterDeath)
-            {
-                Application.Quit();
-                Debug.Log("Application Quit");
-            }*/
-
+            uiText = "They have ended. But life has not.";
+            storedTime = Time.time + timeAfterDeath;
+            endScene = true;
+            Debug.Log(endScene);
         }
 
         text.text = uiText;

@@ -1508,7 +1508,7 @@ PrefabInstance:
     - target: {fileID: 4597498905677956678, guid: 9f11850224ba1c14795db38d2ccbee73,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.049999524
+      value: -0.049999733
       objectReference: {fileID: 0}
     - target: {fileID: 4597498905677956678, guid: 9f11850224ba1c14795db38d2ccbee73,
         type: 3}
@@ -1583,6 +1583,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
+        type: 3}
+      propertyPath: deathCount
+      value: 10000000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
+        type: 3}
+      propertyPath: finalSceneNum
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4442443104079081905, guid: 8c7c81d7b16f5b546a07b6b418533db1,
         type: 3}
@@ -1746,17 +1756,17 @@ PrefabInstance:
     - target: {fileID: 7029301767153496015, guid: 0b46192d4770013469f4b564327b997e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.049999733
       objectReference: {fileID: 0}
     - target: {fileID: 7029301767153496015, guid: 0b46192d4770013469f4b564327b997e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.03
       objectReference: {fileID: 0}
     - target: {fileID: 7029301767153496015, guid: 0b46192d4770013469f4b564327b997e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -10
       objectReference: {fileID: 0}
     - target: {fileID: 7029301767153496015, guid: 0b46192d4770013469f4b564327b997e,
         type: 3}
@@ -1801,7 +1811,12 @@ PrefabInstance:
     - target: {fileID: 7029301767153495856, guid: 0b46192d4770013469f4b564327b997e,
         type: 3}
       propertyPath: orthographic size
-      value: 10
+      value: 4.99
+      objectReference: {fileID: 0}
+    - target: {fileID: 7029301767153495856, guid: 0b46192d4770013469f4b564327b997e,
+        type: 3}
+      propertyPath: field of view
+      value: 34
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b46192d4770013469f4b564327b997e, type: 3}

@@ -604,6 +604,11 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 8.6
       objectReference: {fileID: 0}
+    - target: {fileID: 7029301767153495856, guid: 0b46192d4770013469f4b564327b997e,
+        type: 3}
+      propertyPath: field of view
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b46192d4770013469f4b564327b997e, type: 3}
 --- !u!1001 &1330271851
@@ -1068,6 +1073,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
+        type: 3}
+      propertyPath: deathCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
+        type: 3}
+      propertyPath: maxNum2
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
+        type: 3}
+      propertyPath: maxNum1
+      value: 6000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
+        type: 3}
+      propertyPath: maxNum3
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
+        type: 3}
+      propertyPath: minNum3
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
+        type: 3}
+      propertyPath: finalSceneNum
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4442443104079081905, guid: 8c7c81d7b16f5b546a07b6b418533db1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1227,31 +1262,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.5283019
-      objectReference: {fileID: 0}
-    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
-        type: 3}
-      propertyPath: deathCount
-      value: 10000000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
-        type: 3}
-      propertyPath: maxNum2
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
-        type: 3}
-      propertyPath: maxNum1
-      value: 6000
-      objectReference: {fileID: 0}
-    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
-        type: 3}
-      propertyPath: maxNum3
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5826095656687028050, guid: 8c7c81d7b16f5b546a07b6b418533db1,
-        type: 3}
-      propertyPath: minNum3
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c7c81d7b16f5b546a07b6b418533db1, type: 3}
