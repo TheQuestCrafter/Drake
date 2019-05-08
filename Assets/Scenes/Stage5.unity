@@ -897,6 +897,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f24cbf5dba3844f8fcfc4602ae8e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabForMouse: {fileID: 6924608841863964230, guid: a3c57cbc9f3f647458ade74aac6e6b9d,
+    type: 3}
+  clip: {fileID: 8300000, guid: e96200850d2c6034ea953f0c03361fe4, type: 3}
   image: {fileID: 67006316}
   finishedText: "Forty years as an astronomer have not quelled my enthusiasm for lying
     outside after dark, staring up at the stars. It isn\u2019t only the beauty of
@@ -1122,6 +1125,7 @@ MonoBehaviour:
   audioSource: {fileID: 1253548075}
   text: {fileID: 1542181267}
   collider: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 99a259ce736df7646839937d4fdcb8d2, type: 3}
 --- !u!61 &1253548078
 BoxCollider2D:
   m_ObjectHideFlags: 0

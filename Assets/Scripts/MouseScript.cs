@@ -18,7 +18,9 @@ public class MouseScript : MonoBehaviour
     private Text text;
     [SerializeField]
     private Collider2D collider;
-
+    [SerializeField]
+    private AudioClip audioClip;
+    
     public int obtainedFood { get; set; }
     private float directionX;
     private float directionY;
@@ -86,5 +88,12 @@ public class MouseScript : MonoBehaviour
     public void FreezePlayer()
     {
         moveSpeed = 0;
+        transform.Translate(Vector3.zero);
+        rb2d.rotation = 0;
+    }
+
+    public void Squeak()
+    {
+        audioSource.PlayOneShot(audioClip);
     }
 }

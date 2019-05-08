@@ -42,7 +42,7 @@ public class SceneChecker : MonoBehaviour
 
     private void SceneChecking()
     {
-        if (SceneManager.GetActiveScene() != sceneHistory)
+        if (SceneManager.GetActiveScene() != sceneHistory && SceneManager.GetActiveScene().buildIndex != 5)
         {
             deathCount = (DeathCount)FindObjectOfType(typeof(DeathCount));
             textUpdate = (InstructionUpdate)FindObjectOfType(typeof(InstructionUpdate));
